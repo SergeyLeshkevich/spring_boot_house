@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: v1-3
+      author: Sergey Leshkevich
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: person_house_ownership
+      changes:
+        - createTable:
+            tableName: person_house_ownership
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: person_id
+                  type: INT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    foreignKeyName: fk_person_id
+                    references: persons(id)
+              - column:
+                  name: house_id
+                  type: INT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    foreignKeyName: fk_house_id
+                    references: houses(id)

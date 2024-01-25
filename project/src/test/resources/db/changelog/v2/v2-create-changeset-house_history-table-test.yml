@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: v2-2
+      author: Sergey Leshkevich
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: house_history
+      changes:
+        - createTable:
+            tableName: house_history
+            columns:
+              - column:
+                  name: id
+                  type: SERIAL
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: house_id
+                  type: INT
+                  constraints:
+                    nullable: true
+#                    foreignKeyName: fk_house_history_house
+#                    references: houses(id)
+              - column:
+                  name: person_id
+                  type: INT
+                  constraints:
+                    nullable: true
+#                    foreignKeyName: fk_house_history_person
+#                    references: persons(id)
+              - column:
+                  name: date
+                  type: TIMESTAMP(6)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: type
+                  type: history_type
+                  constraints:
+                    nullable: false

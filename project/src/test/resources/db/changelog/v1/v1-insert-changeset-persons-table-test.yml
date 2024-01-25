@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: v1-5
+      author: Sergey Leshkevich
+      changes:
+        - createProcedure:
+            procedureName: insert_persons_table
+            path: db/changelog/data/v1-insert-changeset-persons-table-test.sql

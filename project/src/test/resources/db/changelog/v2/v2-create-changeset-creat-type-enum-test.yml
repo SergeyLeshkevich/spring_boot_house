@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: v2-1
+      author: Sergey Leshkevich
+      changes:
+        - sql:
+            sql: CREATE TYPE history_type AS ENUM ('OWNER', 'TENANT')
+

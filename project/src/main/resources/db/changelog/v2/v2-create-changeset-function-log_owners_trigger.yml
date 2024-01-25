@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: v2-3
+      author: Sergey Leshkevich
+      changes:
+        - createProcedure:
+            procedureName: log_owners_trigger
+            path: db/changelog/data/v2-create-changeset-function-log_owners_trigger.sql
