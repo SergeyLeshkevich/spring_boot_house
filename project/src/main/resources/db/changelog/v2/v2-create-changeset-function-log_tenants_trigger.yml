@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: v2-5
+      author: Sergey Leshkevich
+      changes:
+        - createProcedure:
+            procedureName: log_tenants
+            path: db/changelog/data/v2-create-changeset-function-log_tenants_trigger.sql

@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: v2-4
+      author: Sergey Leshkevich
+      changes:
+        - sql:
+            sql: CREATE TRIGGER log_person_house_ownership_history_trigger  AFTER INSERT ON person_house_ownership  FOR EACH ROW EXECUTE PROCEDURE log_owners_trigger();

@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: v1-6
+      author: Sergey Leshkevich
+      changes:
+        - createProcedure:
+            procedureName: insert_person_house_ownership_table
+            path: db/changelog/data/v1-insert-changeset-person_house_ownership-table-test.sql

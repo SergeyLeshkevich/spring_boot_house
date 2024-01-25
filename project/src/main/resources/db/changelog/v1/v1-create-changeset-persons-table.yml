@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: v1-2
+      author: Sergey Leshkevich
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: persons
+      changes:
+        - createTable:
+            tableName: persons
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: uuid
+                  type: UUID
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: surname
+                  type: VARCHAR(255)
+              - column:
+                  name: sex
+                  type: VARCHAR(255)
+                  constraints:
+                    checkConstraint: sex IN ('MALE', 'FEMALE')
+              - column:
+                  name: passport_number
+                  type: VARCHAR(255)
+              - column:
+                  name: passport_series
+                  type: VARCHAR(255)
+              - column:
+                  name: create_date
+                  type: TIMESTAMP(6)
+              - column:
+                  name: update_date
+                  type: TIMESTAMP(6)
+              - column:
+                  name: house_id
+                  type: INTEGER
+                  constraints:
+                    foreignKeyName: fk_house_id
+                    references: houses
+                    nullable: false

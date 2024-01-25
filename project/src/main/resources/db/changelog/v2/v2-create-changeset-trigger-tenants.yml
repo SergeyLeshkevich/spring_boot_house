@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: v2-6
+      author: Sergey Leshkevich
+      changes:
+        - sql:
+            sql: CREATE TRIGGER log_house_history_trigger AFTER UPDATE OR INSERT OR DELETE ON persons FOR EACH ROW EXECUTE PROCEDURE log_tenants();
